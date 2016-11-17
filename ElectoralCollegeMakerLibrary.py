@@ -147,7 +147,7 @@ def GenerateElectoralMapByYear(electoral_year, output_to_file=True):
   state_initials = "AK,AL,AR,AZ,CA,CO,CT,DC,DE,FL,GA,HI,IA,ID,IL,IN,KS,KY,LA,MA,MD,ME,ME-2,MI,MN,MO,MS,MT,NC,ND,NE,NE-1,NE-2,NH,NJ,NM,NV,NY,OH,OK,OR,PA,RI,SC,SD,TN,TX,UT,VA,VT,WA,WI,WV,WY";
   return GenerateElectoralMap(candidate_names, candidate_short_names, candidate_colors, candidate_electoral_points, winning_candidate_states, electoral_college_points, state_initials, electoral_year, output_to_file);
  if(electoral_year=="2016"):
-  candidate_names = "Hillary Clinton,Donald Trump";
+  candidate_names = "Hillary Clinton,Donald Trump,Hillary Clinton,Donald Trump,Hillary Clinton,Donald Trump";
   candidate_short_names = "Clinton,Trump";
   candidate_colors = "#698DC5,#F07763";
   candidate_electoral_points = "0,0";
@@ -175,10 +175,6 @@ def GenerateElectoralMap(candidate_names, candidate_short_names, candidate_color
  electoral_college_points_split = [x.strip() for x in electoral_college_points.split(',')];
  electoral_college_points_split = [int(x) for x in electoral_college_points_split];
  state_initials_split = [x.strip() for x in state_initials.split(',')];
- outputsvgstring = """<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"no\"?>
- <svg xmlns=\"http://www.w3.org/2000/svg\" width=\"1020\" height=\"593\">
-  <title>%s US presidential election results</title>
-""" % (electoral_year);
  statemapoutput = "  <g id=\"outlines\">\n";
  statetextoutput = "  <g id=\"text\" font-family=\"Helvetica Neue\" font-size=\"28\" font-weight=\"bold\">\n";
  il = 0;
@@ -428,6 +424,15 @@ def GenerateElectoralMap(candidate_names, candidate_short_names, candidate_color
   il = il + 1;
  statemapoutput = statemapoutput + "  </g>\n";
  if(len(candidate_short_names_split)==2):
+  svg_file_width = 1020;
+  long_candidate_short_name = candidate_short_names_split[0]+" "+str(candidate_electoral_points_split[0]);
+  if(len(long_candidate_short_name)<len(candidate_short_names_split[1]+" "+str(candidate_electoral_points_split[1]))):
+   long_candidate_short_name = candidate_short_names_split[1]+" "+str(candidate_electoral_points_split[1]);
+  svg_file_width = svg_file_width + ( len(long_candidate_short_name) * 10 );
+  outputsvgstring = """<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"no\"?>
+ <svg xmlns=\"http://www.w3.org/2000/svg\" width=\"%s\" height=\"593\">
+  <title>%s US presidential election results</title>
+""" % (str(svg_file_width), electoral_year);
   statetextoutput = statetextoutput + """ <text id=\"DemL\" x=\"855\" y=\"392\">%s</text>
  <text id=\"RepL\" x=\"855\" y=\"425\">%s</text>
   </g>
@@ -437,6 +442,17 @@ def GenerateElectoralMap(candidate_names, candidate_short_names, candidate_color
  <path id=\"frames\" fill=\"none\" stroke=\"#A9A9A9\" stroke-width=\"2\" d=\"M215,493v55l36,45 M0,425h147l68,68h85l54,54v46\"/>
 </svg>""" % (candidate_short_names_split[0]+" "+str(candidate_electoral_points_split[0]), candidate_short_names_split[1]+" "+str(candidate_electoral_points_split[1]), candidate_colors_split[0], candidate_colors_split[1]);
  if(len(candidate_short_names_split)==3):
+  svg_file_width = 1020;
+  long_candidate_short_name = candidate_short_names_split[0]+" "+str(candidate_electoral_points_split[0]);
+  if(len(long_candidate_short_name)<len(candidate_short_names_split[1]+" "+str(candidate_electoral_points_split[1]))):
+   long_candidate_short_name = candidate_short_names_split[1]+" "+str(candidate_electoral_points_split[1]);
+  if(len(long_candidate_short_name)<len(candidate_short_names_split[2]+" "+str(candidate_electoral_points_split[2]))):
+   long_candidate_short_name = candidate_short_names_split[2]+" "+str(candidate_electoral_points_split[2]);
+  svg_file_width = svg_file_width + ( len(long_candidate_short_name) * 10 );
+  outputsvgstring = """<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"no\"?>
+ <svg xmlns=\"http://www.w3.org/2000/svg\" width=\"%s\" height=\"593\">
+  <title>%s US presidential election results</title>
+""" % (str(svg_file_width), electoral_year);
   statetextoutput = statetextoutput + """   <text id=\"DemL\" x=\"855\" y=\"392\">%s</text>
    <text id=\"RepL\" x=\"855\" y=\"425\">%s</text>
    <text id=\"TrdL\" x=\"855\" y=\"458\">%s</text>
@@ -448,6 +464,19 @@ def GenerateElectoralMap(candidate_names, candidate_short_names, candidate_color
  <path id=\"frames\" fill=\"none\" stroke=\"#A9A9A9\" stroke-width=\"2\" d=\"M215,493v55l36,45 M0,425h147l68,68h85l54,54v46\"/>
 </svg>""" % (candidate_short_names_split[0]+" "+str(candidate_electoral_points_split[0]), candidate_short_names_split[1]+" "+str(candidate_electoral_points_split[1]), candidate_short_names_split[2]+" "+str(candidate_electoral_points_split[2]), candidate_colors_split[0], candidate_colors_split[1], candidate_colors_split[2]);
  if(len(candidate_short_names_split)==4):
+  svg_file_width = 1020;
+  long_candidate_short_name = candidate_short_names_split[0]+" "+str(candidate_electoral_points_split[0]);
+  if(len(long_candidate_short_name)<len(candidate_short_names_split[1]+" "+str(candidate_electoral_points_split[1]))):
+   long_candidate_short_name = candidate_short_names_split[1]+" "+str(candidate_electoral_points_split[1]);
+  if(len(long_candidate_short_name)<len(candidate_short_names_split[2]+" "+str(candidate_electoral_points_split[2]))):
+   long_candidate_short_name = candidate_short_names_split[2]+" "+str(candidate_electoral_points_split[2]);
+  if(len(long_candidate_short_name)<len(candidate_short_names_split[3]+" "+str(candidate_electoral_points_split[3]))):
+   long_candidate_short_name = candidate_short_names_split[3]+" "+str(candidate_electoral_points_split[3]);
+  svg_file_width = svg_file_width + ( len(long_candidate_short_name) * 10 );
+  outputsvgstring = """<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"no\"?>
+ <svg xmlns=\"http://www.w3.org/2000/svg\" width=\"%s\" height=\"593\">
+  <title>%s US presidential election results</title>
+""" % (str(svg_file_width), electoral_year);
   statetextoutput = statetextoutput + """   <text id=\"DemL\" x=\"855\" y=\"392\">%s</text>
    <text id=\"RepL\" x=\"855\" y=\"425\">%s</text>
    <text id=\"TrdL\" x=\"855\" y=\"458\">%s</text>
@@ -461,6 +490,21 @@ def GenerateElectoralMap(candidate_names, candidate_short_names, candidate_color
  <path id=\"frames\" fill=\"none\" stroke=\"#A9A9A9\" stroke-width=\"2\" d=\"M215,493v55l36,45 M0,425h147l68,68h85l54,54v46\"/>
 </svg>""" % (candidate_short_names_split[0]+" "+str(candidate_electoral_points_split[0]), candidate_short_names_split[1]+" "+str(candidate_electoral_points_split[1]), candidate_short_names_split[2]+" "+str(candidate_electoral_points_split[2]), candidate_short_names_split[3]+" "+str(candidate_electoral_points_split[3]), candidate_colors_split[0], candidate_colors_split[1], candidate_colors_split[2], candidate_colors_split[3]);
  if(len(candidate_short_names_split)==5):
+  svg_file_width = 1020;
+  long_candidate_short_name = candidate_short_names_split[0]+" "+str(candidate_electoral_points_split[0]);
+  if(len(long_candidate_short_name)<len(candidate_short_names_split[1]+" "+str(candidate_electoral_points_split[1]))):
+   long_candidate_short_name = candidate_short_names_split[1]+" "+str(candidate_electoral_points_split[1]);
+  if(len(long_candidate_short_name)<len(candidate_short_names_split[2]+" "+str(candidate_electoral_points_split[2]))):
+   long_candidate_short_name = candidate_short_names_split[2]+" "+str(candidate_electoral_points_split[2]);
+  if(len(long_candidate_short_name)<len(candidate_short_names_split[3]+" "+str(candidate_electoral_points_split[3]))):
+   long_candidate_short_name = candidate_short_names_split[3]+" "+str(candidate_electoral_points_split[3]);
+  if(len(long_candidate_short_name)<len(candidate_short_names_split[4]+" "+str(candidate_electoral_points_split[4]))):
+   long_candidate_short_name = candidate_short_names_split[4]+" "+str(candidate_electoral_points_split[4]);
+  svg_file_width = svg_file_width + ( len(long_candidate_short_name) * 10 );
+  outputsvgstring = """<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"no\"?>
+ <svg xmlns=\"http://www.w3.org/2000/svg\" width=\"%s\" height=\"593\">
+  <title>%s US presidential election results</title>
+""" % (str(svg_file_width), electoral_year);
   statetextoutput = statetextoutput + """   <text id=\"DemL\" x=\"855\" y=\"392\">%s</text>
    <text id=\"RepL\" x=\"855\" y=\"425\">%s</text>
    <text id=\"TrdL\" x=\"855\" y=\"458\">%s</text>
@@ -475,7 +519,24 @@ def GenerateElectoralMap(candidate_names, candidate_short_names, candidate_color
  <rect id=\"Fth\" x=\"828\" y=\"505\" height=\"19\" width=\"19\" fill=\"%s\" stroke=\"#000000\" stroke-width=\"0.8\"/>
  <path id=\"frames\" fill=\"none\" stroke=\"#A9A9A9\" stroke-width=\"2\" d=\"M215,493v55l36,45 M0,425h147l68,68h85l54,54v46\"/>
 </svg>""" % (candidate_short_names_split[0]+" "+str(candidate_electoral_points_split[0]), candidate_short_names_split[1]+" "+str(candidate_electoral_points_split[1]), candidate_short_names_split[2]+" "+str(candidate_electoral_points_split[2]), candidate_short_names_split[3]+" "+str(candidate_electoral_points_split[3]), candidate_short_names_split[4]+" "+str(candidate_electoral_points_split[4]), candidate_colors_split[0], candidate_colors_split[1], candidate_colors_split[2], candidate_colors_split[3], candidate_colors_split[4]);
- if(len(candidate_short_names_split)==5):
+ if(len(candidate_short_names_split)==6):
+  svg_file_width = 1020;
+  long_candidate_short_name = candidate_short_names_split[0]+" "+str(candidate_electoral_points_split[0]);
+  if(len(long_candidate_short_name)<len(candidate_short_names_split[1]+" "+str(candidate_electoral_points_split[1]))):
+   long_candidate_short_name = candidate_short_names_split[1]+" "+str(candidate_electoral_points_split[1]);
+  if(len(long_candidate_short_name)<len(candidate_short_names_split[2]+" "+str(candidate_electoral_points_split[2]))):
+   long_candidate_short_name = candidate_short_names_split[2]+" "+str(candidate_electoral_points_split[2]);
+  if(len(long_candidate_short_name)<len(candidate_short_names_split[3]+" "+str(candidate_electoral_points_split[3]))):
+   long_candidate_short_name = candidate_short_names_split[3]+" "+str(candidate_electoral_points_split[3]);
+  if(len(long_candidate_short_name)<len(candidate_short_names_split[4]+" "+str(candidate_electoral_points_split[4]))):
+   long_candidate_short_name = candidate_short_names_split[4]+" "+str(candidate_electoral_points_split[4]);
+  if(len(long_candidate_short_name)<len(candidate_short_names_split[5]+" "+str(candidate_electoral_points_split[5]))):
+   long_candidate_short_name = candidate_short_names_split[5]+" "+str(candidate_electoral_points_split[5]);
+  svg_file_width = svg_file_width + ( len(long_candidate_short_name) * 10 );
+  outputsvgstring = """<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"no\"?>
+ <svg xmlns=\"http://www.w3.org/2000/svg\" width=\"%s\" height=\"593\">
+  <title>%s US presidential election results</title>
+""" % (str(svg_file_width), electoral_year);
   statetextoutput = statetextoutput + """   <text id=\"DemL\" x=\"855\" y=\"392\">%s</text>
    <text id=\"RepL\" x=\"855\" y=\"425\">%s</text>
    <text id=\"TrdL\" x=\"855\" y=\"458\">%s</text>
@@ -493,6 +554,26 @@ def GenerateElectoralMap(candidate_names, candidate_short_names, candidate_color
  <path id=\"frames\" fill=\"none\" stroke=\"#A9A9A9\" stroke-width=\"2\" d=\"M215,493v55l36,45 M0,425h147l68,68h85l54,54v46\"/>
 </svg>
 """ % (candidate_short_names_split[0]+" "+str(candidate_electoral_points_split[0]), candidate_short_names_split[1]+" "+str(candidate_electoral_points_split[1]), candidate_short_names_split[2]+" "+str(candidate_electoral_points_split[2]), candidate_short_names_split[3]+" "+str(candidate_electoral_points_split[3]), candidate_short_names_split[4]+" "+str(candidate_electoral_points_split[4]), candidate_short_names_split[5]+" "+str(candidate_electoral_points_split[5]), candidate_colors_split[0], candidate_colors_split[1], candidate_colors_split[2], candidate_colors_split[3], candidate_colors_split[4], candidate_colors_split[5]);
+ if(len(candidate_short_names_split)>=7):
+  svg_file_width = 1020;
+  long_candidate_short_name = candidate_short_names_split[0]+" "+str(candidate_electoral_points_split[0]);
+  if(len(long_candidate_short_name)<len(candidate_short_names_split[1]+" "+str(candidate_electoral_points_split[1]))):
+   long_candidate_short_name = candidate_short_names_split[1]+" "+str(candidate_electoral_points_split[1]);
+  if(len(long_candidate_short_name)<len(candidate_short_names_split[2]+" "+str(candidate_electoral_points_split[2]))):
+   long_candidate_short_name = candidate_short_names_split[2]+" "+str(candidate_electoral_points_split[2]);
+  if(len(long_candidate_short_name)<len(candidate_short_names_split[3]+" "+str(candidate_electoral_points_split[3]))):
+   long_candidate_short_name = candidate_short_names_split[3]+" "+str(candidate_electoral_points_split[3]);
+  if(len(long_candidate_short_name)<len(candidate_short_names_split[4]+" "+str(candidate_electoral_points_split[4]))):
+   long_candidate_short_name = candidate_short_names_split[4]+" "+str(candidate_electoral_points_split[4]);
+  if(len(long_candidate_short_name)<len(candidate_short_names_split[5]+" "+str(candidate_electoral_points_split[5]))):
+   long_candidate_short_name = candidate_short_names_split[5]+" "+str(candidate_electoral_points_split[5]);
+  if(len(long_candidate_short_name)<len(candidate_short_names_split[6]+" "+str(candidate_electoral_points_split[6]))):
+   long_candidate_short_name = candidate_short_names_split[6]+" "+str(candidate_electoral_points_split[6]);
+  svg_file_width = svg_file_width + ( len(long_candidate_short_name) * 10 );
+  outputsvgstring = """<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"no\"?>
+ <svg xmlns=\"http://www.w3.org/2000/svg\" width=\"%s\" height=\"593\">
+  <title>%s US presidential election results</title>
+""" % (str(svg_file_width), electoral_year);
   statetextoutput = statetextoutput + """   <text id=\"DemL\" x=\"855\" y=\"392\">%s</text>
    <text id=\"RepL\" x=\"855\" y=\"425\">%s</text>
    <text id=\"TrdL\" x=\"855\" y=\"458\">%s</text>

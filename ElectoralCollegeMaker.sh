@@ -1,0 +1,16 @@
+#!/usr/bin/env bash
+
+python "./ElectoralCollegeMakerByYear.py" -o -y "1964" && python "./ElectoralCollegeMakerByYear.py" -op -y "1964"
+python "./ElectoralCollegeMakerByYear.py" -o -y "1968" && python "./ElectoralCollegeMakerByYear.py" -op -y "1968"
+python "./ElectoralCollegeMakerByYear.py" -o -y "1972" && python "./ElectoralCollegeMakerByYear.py" -op -y "1972"
+python "./ElectoralCollegeMakerByYear.py" -o -y "1976" && python "./ElectoralCollegeMakerByYear.py" -op -y "1976"
+python "./ElectoralCollegeMakerByYear.py" -o -y "1980" && python "./ElectoralCollegeMakerByYear.py" -op -y "1980"
+python "./ElectoralCollegeMakerByYear.py" -o -y "1984" && python "./ElectoralCollegeMakerByYear.py" -op -y "1984"
+python "./ElectoralCollegeMakerByYear.py" -o -y "1988" && python "./ElectoralCollegeMakerByYear.py" -op -y "1988"
+python "./ElectoralCollegeMakerByYear.py" -o -y "1992" && python "./ElectoralCollegeMakerByYear.py" -op -y "1992"
+python "./ElectoralCollegeMakerByYear.py" -o -y "1996" && python "./ElectoralCollegeMakerByYear.py" -op -y "1996"
+python "./ElectoralCollegeMakerByYear.py" -o -y "2000" && python "./ElectoralCollegeMakerByYear.py" -op -y "2000"
+python "./ElectoralCollegeMakerByYear.py" -o -y "2004" && python "./ElectoralCollegeMakerByYear.py" -op -y "2004"
+python "./ElectoralCollegeMakerByYear.py" -o -y "2008" && python "./ElectoralCollegeMakerByYear.py" -op -y "2008"
+python "./ElectoralCollegeMakerByYear.py" -o -y "2012" && python "./ElectoralCollegeMakerByYear.py" -op -y "2012"
+python "./ElectoralCollegeMakerByYear.py" -o -y "2016" && python "./ElectoralCollegeMakerByYear.py" -op -y "2016"

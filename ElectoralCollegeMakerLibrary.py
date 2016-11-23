@@ -177,6 +177,9 @@ def GenerateElectoralMap(candidate_names, candidate_short_names, candidate_color
  state_initials_split = [x.strip() for x in state_initials.split(',')];
  statemapoutput = "  <g id=\"outlines\">\n";
  statetextoutput = "  <g id=\"text\" font-family=\"Helvetica Neue\" font-size=\"28\" font-weight=\"bold\">\n";
+ statemapoutput_dclast = "";
+ statetextoutput_dclast = "";
+
  il = 0;
  ilx = len(winning_candidate_states_split);
  while(il < ilx):
@@ -209,8 +212,8 @@ def GenerateElectoralMap(candidate_names, candidate_short_names, candidate_color
    statetextoutput = statetextoutput + "   <text id=\"CTn\" x=\"918\" y=\"228\" font-size=\"22\">CT "+str(electoral_college_points_split[il])+"</text>\n";
    candidate_electoral_points_split[winning_candidate_states_split[il]] = candidate_electoral_points_split[winning_candidate_states_split[il]] + electoral_college_points_split[il];
   if(state_initials_split[il]=="DC"):
-   statemapoutput = statemapoutput + "   <path id=\"DC\" fill=\""+candidate_colors_split[winning_candidate_states_split[il]]+"\" stroke=\"#FFFFFF\" d=\"M 807,260l-6.26,-3.18l-5.97,3.60l1.09,-6.93l-5.27,-4.56l6.93,-1.11l2.71,-6.42l3.19,6.25l6.94,0.59l-4.96,4.97 L 807,260 z\"/>\n"
-   statetextoutput = statetextoutput + "   <text id=\"DCn\" x=\"864\" y=\"327\" font-size=\"22\">DC "+str(electoral_college_points_split[il])+"</text>\n";
+   statemapoutput_dclast = "   <path id=\"DC\" fill=\""+candidate_colors_split[winning_candidate_states_split[il]]+"\" stroke=\"#FFFFFF\" d=\"M 807,260l-6.26,-3.18l-5.97,3.60l1.09,-6.93l-5.27,-4.56l6.93,-1.11l2.71,-6.42l3.19,6.25dclast0.59l-4.96,4.97 L 807,260 z\"/>\n"
+   statetextoutput_dclast = "   <text id=\"DCn\" x=\"864\" y=\"327\" font-size=\"22\">DC "+str(electoral_college_points_split[il])+"</text>\n";
    candidate_electoral_points_split[winning_candidate_states_split[il]] = candidate_electoral_points_split[winning_candidate_states_split[il]] + electoral_college_points_split[il];
   if(state_initials_split[il]=="DE"):
    statemapoutput = statemapoutput + "   <path id=\"DE\" fill=\""+candidate_colors_split[winning_candidate_states_split[il]]+"\" d=\"M822.4,230.4l0.6-2.1l0-1.2l-1.3-0.1l-2.1,1.6l-1.5,1.5l1.5,4.2l2.3,5.7l2.1,9.7l1.6,6.3l5-0.2 l6.1-1.2l-2.3-7.4l-1,0.5l-3.6-2.4l-1.8-4.7l-1.9-3.6l-2.3-1l-2.1-3.6L822.4,230.4z\"/>\n"
@@ -422,7 +425,8 @@ def GenerateElectoralMap(candidate_names, candidate_short_names, candidate_color
    statetextoutput = statetextoutput + "   <text id=\"WYn\" x=\"290\" y=\"191\">"+str(electoral_college_points_split[il])+"</text>\n";
    candidate_electoral_points_split[winning_candidate_states_split[il]] = candidate_electoral_points_split[winning_candidate_states_split[il]] + electoral_college_points_split[il];
   il = il + 1;
- statemapoutput = statemapoutput + "  </g>\n";
+ statemapoutput = statemapoutput + statemapoutput_dclast + "  </g>\n";
+ statetextoutput = statetextoutput + statetextoutput_dclast;
  if(len(candidate_short_names_split)==2):
   svg_file_width = 1020;
   long_candidate_short_name = candidate_short_names_split[0]+" "+str(candidate_electoral_points_split[0]);

@@ -20,7 +20,7 @@ from __future__ import division, absolute_import, print_function;
 import os, sys, re, argparse, ElectoralCollegeMakerLibrary;
 
 parser = argparse.ArgumentParser(conflict_handler = "resolve", add_help = True);
-parser.add_argument("-y", "--year", default = "2016", help = "enter presidential election year");
+parser.add_argument("-y", "--year", default = "2020", help = "enter presidential election year");
 parser.add_argument("-o", "--output-file", action="store_true", help = "enter name of output image");
 parser.add_argument("-op", "--output-png", action="store_true", help = "enter name of output image");
 parser.add_argument("-v", "--version", action = "version", version = ElectoralCollegeMakerLibrary.__version__);

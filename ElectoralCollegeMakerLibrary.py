@@ -156,8 +156,8 @@ def GenerateElectoralMapByYear(electoral_year, output_to_file=True):
   state_initials = "AK,AL,AR,AZ,CA,CO,CT,DC,DE,FL,GA,HI,IA,ID,IL,IN,KS,KY,LA,MA,MD,ME,ME-2,MI,MN,MO,MS,MT,NC,ND,NE,NE-1,NE-2,NH,NJ,NM,NV,NY,OH,OK,OR,PA,RI,SC,SD,TN,TX,UT,VA,VT,WA,WI,WV,WY";
   return GenerateElectoralMap(candidate_names, candidate_short_names, candidate_colors, candidate_electoral_points, winning_candidate_states, electoral_college_points, state_initials, electoral_year, output_to_file);
  if(electoral_year=="2020"):
-  candidate_names = "Hillary Clinton,Donald Trump";
-  candidate_short_names = "Clinton,Trump";
+  candidate_names = "Joe Biden,Donald Trump";
+  candidate_short_names = "Biden,Trump";
   candidate_colors = "#698DC5,#F07763";
   candidate_electoral_points = "0,0";
   winning_candidate_states = "1,1,1,0,0,0,0,0,0,1,0,0,1,1,0,1,1,1,1,0,0,0,1,0,0,1,1,1,1,1,1,1,1,0,0,0,0,0,1,1,0,0,0,1,1,1,1,1,0,0,0,0,1,1";

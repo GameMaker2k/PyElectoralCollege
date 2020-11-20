@@ -160,7 +160,7 @@ def GenerateElectoralMapByYear(electoral_year, output_to_file=True):
   candidate_short_names = "Biden,Trump";
   candidate_colors = "#698DC5,#F07763";
   candidate_electoral_points = "0,0";
-  winning_candidate_states = "1,1,1,0,0,0,0,0,0,1,0,0,1,1,0,1,1,1,1,0,0,0,1,0,0,1,1,1,1,1,1,1,1,0,0,0,0,0,1,1,0,0,0,1,1,1,1,1,0,0,0,0,1,1";
+  winning_candidate_states = "1,1,1,0,0,0,0,0,0,1,0,0,1,1,0,1,1,1,1,0,0,0,1,0,0,1,1,1,1,1,1,1,0,0,0,0,0,0,1,1,0,0,0,1,1,1,1,1,0,0,0,0,1,1";
   electoral_college_points = "3,9,6,11,55,9,7,3,3,29,16,4,6,4,20,11,6,8,8,11,10,3,1,16,10,10,6,3,15,3,3,1,1,4,14,5,6,29,18,7,7,20,4,9,3,11,38,6,13,3,12,10,5,3";
   state_initials = "AK,AL,AR,AZ,CA,CO,CT,DC,DE,FL,GA,HI,IA,ID,IL,IN,KS,KY,LA,MA,MD,ME,ME-2,MI,MN,MO,MS,MT,NC,ND,NE,NE-1,NE-2,NH,NJ,NM,NV,NY,OH,OK,OR,PA,RI,SC,SD,TN,TX,UT,VA,VT,WA,WI,WV,WY";
   return GenerateElectoralMap(candidate_names, candidate_short_names, candidate_colors, candidate_electoral_points, winning_candidate_states, electoral_college_points, state_initials, electoral_year, output_to_file);

@@ -287,7 +287,7 @@ def GenerateElectoralMap(candidate_names, candidate_short_names, candidate_color
     candidate_electoral_points_split[winning_candidate_states_split[il]] = candidate_electoral_points_split[winning_candidate_states_split[il]] + electoral_college_points_split[il] + 1;
   if(state_initials_split[il]=="ME-2"):
    if(winning_candidate_states_split[il]!=winning_candidate_states_split[il-1]):
-    statemapoutput = statemapoutput + "<circle id=\"ME-2\" fill=\""+candidate_colors_split[winning_candidate_states_split[il]]+"\" cx=\"884\" cy=\"96\" r=\"14\"/>\n"
+    statemapoutput = statemapoutput + "   <circle id=\"ME-2\" fill=\""+candidate_colors_split[winning_candidate_states_split[il]]+"\" cx=\"884\" cy=\"96\" r=\"14\"/>\n"
     statetextoutput = statetextoutput + "   <text id=\"ME-2n\" x=\"877\" y=\"104\" font-size=\"25\">"+str(electoral_college_points_split[il])+"</text>\n";
     candidate_electoral_points_split[winning_candidate_states_split[il]] = candidate_electoral_points_split[winning_candidate_states_split[il]] + electoral_college_points_split[il];
   if(state_initials_split[il]=="MI"):
@@ -337,17 +337,17 @@ def GenerateElectoralMap(candidate_names, candidate_short_names, candidate_color
     candidate_electoral_points_split[winning_candidate_states_split[il]] = candidate_electoral_points_split[winning_candidate_states_split[il]] + electoral_college_points_split[il] + 2;
   if(state_initials_split[il]=="NE-1"):
    if(winning_candidate_states_split[il]!=winning_candidate_states_split[il-1] and winning_candidate_states_split[il]!=winning_candidate_states_split[il+1]):
-    statemapoutput = statemapoutput + "<circle id=\"NE-1\" fill=\""+candidate_colors_split[winning_candidate_states_split[il]]+"\" cx=\"459\" cy=\"239\" r=\"14\"/>\n"
+    statemapoutput = statemapoutput + "   <circle id=\"NE-1\" fill=\""+candidate_colors_split[winning_candidate_states_split[il]]+"\" cx=\"459\" cy=\"239\" r=\"14\"/>\n"
     statetextoutput = statetextoutput + "   <text id=\"NE-1n\" x=\"451\" y=\"248\" font-size=\"25\">"+str(electoral_college_points_split[il])+"</text>\n";
     candidate_electoral_points_split[winning_candidate_states_split[il]] = candidate_electoral_points_split[winning_candidate_states_split[il]] + electoral_college_points_split[il];
    if(winning_candidate_states_split[il]!=winning_candidate_states_split[il-1] and winning_candidate_states_split[il]==winning_candidate_states_split[il+1]):
-    statemapoutput = statemapoutput + "<circle id=\"NE-1\" fill=\""+candidate_colors_split[winning_candidate_states_split[il]]+"\" cx=\"459\" cy=\"239\" r=\"14\"/>\n"
+    statemapoutput = statemapoutput + "   <circle id=\"NE-1\" fill=\""+candidate_colors_split[winning_candidate_states_split[il]]+"\" cx=\"459\" cy=\"239\" r=\"14\"/>\n"
     statetextoutput = statetextoutput + "   <text id=\"NE-1n\" x=\"451\" y=\"248\" font-size=\"25\">"+str(electoral_college_points_split[il] + 1)+"</text>\n";
     candidate_electoral_points_split[winning_candidate_states_split[il]] = candidate_electoral_points_split[winning_candidate_states_split[il]] + electoral_college_points_split[il] + 1;
   if(state_initials_split[il]=="NE-2"):
    if(winning_candidate_states_split[il]!=winning_candidate_states_split[il-2] and winning_candidate_states_split[il]!=winning_candidate_states_split[il-1]):
-    statemapoutput = statemapoutput + "<circle id=\"NE-1\" fill=\""+candidate_colors_split[winning_candidate_states_split[il]]+"\" cx=\"459\" cy=\"239\" r=\"14\"/>\n"
-    statetextoutput = statetextoutput + "   <text id=\"NE-1n\" x=\"371\" y=\"216\" font-size=\"25\">"+str(electoral_college_points_split[il])+"</text>\n";
+    statemapoutput = statemapoutput + "   <circle id=\"NE-1\" fill=\""+candidate_colors_split[winning_candidate_states_split[il]]+"\" cx=\"459\" cy=\"239\" r=\"14\"/>\n"
+    statetextoutput = statetextoutput + "   <text id=\"NE-1n\" x=\"452\" y=\"247\" font-size=\"25\">"+str(electoral_college_points_split[il])+"</text>\n";
     candidate_electoral_points_split[winning_candidate_states_split[il]] = candidate_electoral_points_split[winning_candidate_states_split[il]] + electoral_college_points_split[il];
   if(state_initials_split[il]=="NH"):
    statemapoutput = statemapoutput + "   <path id=\"NH\" fill=\""+candidate_colors_split[winning_candidate_states_split[il]]+"\" d=\"M880.8,142.4l0.9-1.1l1.1-3.3l-2.5-0.9l-0.5-3.1l-3.9-1.1l-0.3-2.7l-7.3-23.4l-4.6-14.5l-0.9,0 l-0.6,1.6l-0.6-0.5l-1-1l-1.5,1.9l0,5l0.3,5.7l1.9,2.7v4l-3.7,5.1l-2.6,1.1v1.1l1.1,1.8v8.6l-0.8,9.2l-0.2,4.8l1,1.3l-0.2,4.5 l-0.5,1.8l1.5,0.9l16.4-4.7l2.3-0.6l1.5-2.6L880.8,142.4z\"/>\n"
